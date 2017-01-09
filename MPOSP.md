@@ -1032,6 +1032,7 @@ companyName: "企业名称"
 regPlace: "经营地址"
 businessLicense: "营业执照号"
 business: 图片 //营业执照照片
+isCheckMerchantInfo:"1",//是否校验商户资质(0:否，1:是)
 ```
 
 响应： 
