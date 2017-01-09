@@ -1109,6 +1109,8 @@ bankName: "银行名称"
 unionBankNo: "联行号"
 accountNo: "银行卡号"
 card: 图片 //银行卡图片
+mobile: 15877987678 // 手机号
+ver_code : 2343 //验证码
 ```
 
 响应： 
