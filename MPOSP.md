@@ -1104,13 +1104,14 @@ Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
 appVersion: "ios.未知.1.1.813"
-name: "账户名称"
-bankName: "银行名称"
+name: "姓名" //名字
+identityCard : 370828199902019876 //身份证号
+bankName: "银行名称" 
 unionBankNo: "联行号"
 accountNo: "银行卡号"
 card: 图片 //银行卡图片
 mobile: 15877987678 // 手机号
-ver_code : 2343 //验证码
+verifyCode : 2343 //验证码
 ```
 
 响应： 
