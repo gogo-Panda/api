@@ -55,7 +55,7 @@ HTTP/1.1 403 Forbidden
 | 资源名称     | 路径                                     | Content-Type         | 请求方式     | 维护人     | 是否需要登录|
 |-------------|-----------------------------------------|----------------------|---------------|---------------|---------------|
 | 获取验证码| [/sendMobileMessage](#sendMobileMessage)                      | urlencoded           | POST   | 张树彬     | 否   |
-| 获取验证码| [/sendCustomerMessage](#sendCustomerMessage)                      | urlencoded           | POST   | 张攀攀     | 否 |
+| 获取验证码| [/sendCustomerMessage](#sendCustomerMessage)                  | urlencoded           | POST   | 张攀攀     | 否   |
 | 登录| [/login](#login)                      | urlencoded           | POST      | 李飞     | 否   |
 | 退出| [/logout](#logout)                      | urlencoded           | POST      | 李飞     | 是   |
 | 注册| [/register](#register)                      | urlencoded           | POST   |  李飞     | 否   |
