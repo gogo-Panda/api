@@ -1204,7 +1204,8 @@ Content-Length: 100
     "accountNo":"6217000010012052348",//银行卡号
     "card":"c500000000620995.png",//银行卡图片名称
     "name": "姓名" //名字
-     "identityCard" : "370828199902019876" //身份证号
+    "identityCard" : "370828199902019876" //身份证号
+    "mobile": "15877987678" // 手机号
     "bankName":"建设银行",//银行名称
     "unionBankNo":"56SDFSD56SDF",//联行号
     "accountReason":"账户信誉差",//认证失败原因
