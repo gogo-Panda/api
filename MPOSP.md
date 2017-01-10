@@ -55,6 +55,7 @@ HTTP/1.1 403 Forbidden
 | 资源名称     | 路径                                     | Content-Type         | 请求方式     | 维护人     | 是否需要登录|
 |-------------|-----------------------------------------|----------------------|---------------|---------------|---------------|
 | 获取验证码| [/sendMobileMessage](#sendMobileMessage)                      | urlencoded           | POST   | 张树彬     | 否   |
+| 获取验证码| [/sendCustomerMessage](#sendCustomerMessage)		       | urlencoded	      | POST   | 张攀攀	 | 否   |
 | 登录| [/login](#login)                      | urlencoded           | POST      | 李飞     | 否   |
 | 退出| [/logout](#logout)                      | urlencoded           | POST      | 李飞     | 是   |
 | 注册| [/register](#register)                      | urlencoded           | POST   |  李飞     | 否   |
@@ -114,6 +115,43 @@ Content-Length: 30
 appVersion: "ios.未知.1.1.813"
 mobile: "15801376995"
 type: "registe" //注册、忘记密码必传(registe/forget)  (非必传项)
+```
+响应：  
+```
+HTTP/1.1 200 OK
+Server: Nginx
+Date: Thu, 09 Apr 2015 11:36:53 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Cache-Control: no-cache
+Content-Length: 100
+
+{
+   "respTime":"20151125161740",
+   "isSuccess":true,
+   "respCode":"SUCCESS",
+   "respMsg":"发送验证码成功,注意查收"
+   
+}
+```
+##### [返回目录↑](#content-title)
+<a id="sendCustomerMessage"></a>
+### 获取验证码  /sendCustomerMessage
+#### 1\. 通过手机号获取验证码
+请求：  
+```
+POST /sendCustomerMessage HTTP/1.1
+Host: mposp.21er.tk
+Date: Thu, 03 Dec 2015 10:22:53
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 30
+
+appVersion: "ios.未知.1.1.813"
+accountName: "张无忌" //姓名
+idNumber   ： "010876765543456543" //身份证
+mobile     ： "15201059026" //手机号
+bankCard   ： "62202010904267897" // 银行卡号
+reqTime    ： "20151125161740" //请求时间
 ```
 响应：  
 ```
@@ -1105,11 +1143,14 @@ Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
 appVersion: "ios.未知.1.1.813"
-name: "账户名称"
-bankName: "银行名称"
+name: "姓名" //名字
+identityCard : 370828199902019876 //身份证号
+bankName: "银行名称" 
 unionBankNo: "联行号"
 accountNo: "银行卡号"
 card: 图片 //银行卡图片
+mobile: 15877987678 // 手机号
+verificationCode : 2343 //验证码
 ```
 
 响应： 
