@@ -347,7 +347,8 @@ Content-Length: 100
             "T1AuthFirstPass" : 1;
             "status": "1111", 
             "name": "橡树斌", 
-            "cardTail": "2333", 
+	    "identityCard"："370828199709879876",
+            "cardTail": "2333", 
             "bluetoothName": "AC079158", 
             "serialType": "0.78--26", 
             "merchantReason": "", 
