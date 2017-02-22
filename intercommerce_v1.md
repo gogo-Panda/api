@@ -98,7 +98,7 @@ HTTP/1.1 403 Forbidden
 | 获取回单详情 | [/receiptInfo.action](#receiptInfo)    | urlencoded           | GET   | 张树彬     | 是   |
 | 获取商户信息 | [/getMerchantInfo.action](#getMerchantInfo)    | urlencoded   | POST   | 张攀攀     | 是   |
 | 商户四要素认证和匹配 | [/authenticationMerchant.action](#authenticationMerchant)    | urlencoded  | POST   | 张攀攀     | 是   |
-
+| 获取该用户的电子账户信息 | [/getUserElectAccount.action](#getUserElectAccount)    | urlencoded  | POST   | 张攀攀     | 是   |
 ----------------------------------------------------------------------------------
 <a id="sendMobileMessage"></a>
 ### 获取验证码  /sendMobileMessage
@@ -2049,3 +2049,56 @@ Content-Length: 100
 }
 ```
 ##### [返回目录↑](#content-title)
+
+<a id="getUserElectAccount"></a>
+### 获取用户电子开户情况 /getUserElectAccount
+#### 1\. 获取用户电子开户情况
+请求：  
+```
+POST /getUserElectAccount HTTP/1.1
+Host: mposp.21er.tk
+Date: Thu, 03 Dec 2015 10:22:53
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 30
+
+"appVersion": "android.ZFT.1.2.143"
+```
+响应： 
+
+```
+HTTP/1.1 200 OK
+Server: Nginx
+Date: Thu, 09 Apr 2015 11:36:53 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Cache-Control: no-cache
+Content-Length: 100
+//没有电子银行
+{
+    
+   "respTime":"20170222101141",
+   "isSuccess":true,
+   "respCode":"SUCCESS",
+   "respMsg":"成功",
+   "isNotice": "0" //0 没有电子银行 1 有电子银行
+}
+//有电子银行
+{
+    
+   "respTime":"20170222101141",
+   "isSuccess":true,
+   "respCode":"SUCCESS",
+   "respMsg":"成功",
+   "isNotice": "1" //0 没有电子银行 1 有电子银行
+    "merchant":     {
+    	"merchantId" : "XXXXXX",
+    	"merchantNo" : "XXXXXX"
+        "merchantName": "XXX",
+        "merchantBankCard": "XXXXXXXXXXXXXXXXX",
+        "merchantIdCard": "XXXXXXXXXXXXXXXXXX",
+ }
+}
+
+```
+##### [返回目录↑](#content-title)
+
