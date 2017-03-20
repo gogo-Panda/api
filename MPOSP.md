@@ -868,7 +868,9 @@ cardIds: "XXX YYYY"//解绑卡列表 空格区分
 bankCard: "XXXX"
 mobile: "13777775555"
 reqTime: "20151124111059"
+isSelf : true //true表示添加自己的银行卡 false 表示添加别人的银行卡
 appVersion: "ios.未知.1.1.813"
+
 
 ```
 响应： 
