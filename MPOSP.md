@@ -1495,6 +1495,17 @@ Content-Length: 100
     "authNo":"666666777777",
     "script":"ic55"
 }
+//当交易失败原因如下时，要求用户去帮卡
+
+{
+    "respTime": "20170330195156",
+    "isSuccess": false,
+    "respCode": "LIMIT_AMOUNT",
+    "respMsg": "单笔交易最大限额不得大于1000元，可通过绑定本人信用卡提高交易额度"
+}
+
+
+
 ```
 ##### [返回目录↑](#content-title)
 <a id="query"></a>
