@@ -868,7 +868,9 @@ cardIds: "XXX YYYY"//解绑卡列表 空格区分
 bankCard: "XXXX"
 mobile: "13777775555"
 reqTime: "20151124111059"
+isSelf : true //true表示添加自己的银行卡 false 表示添加别人的银行卡
 appVersion: "ios.未知.1.1.813"
+
 
 ```
 响应： 
@@ -1494,6 +1496,16 @@ Content-Length: 100
     "authNo":"666666777777",
     "script":"ic55"
 }
+//当交易失败原因如下时，要求用户去绑卡
+{
+    "respTime": "20170330195156",
+    "isSuccess": false,
+    "respCode": "LIMIT_AMOUNT",
+    "respMsg": "单笔交易最大限额不得大于1000元，可通过绑定本人信用卡提高交易额度"
+}
+
+
+
 ```
 ##### [返回目录↑](#content-title)
 <a id="query"></a>
