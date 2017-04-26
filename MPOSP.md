@@ -100,6 +100,8 @@ HTTP/1.1 403 Forbidden
 | 获取消息接口/更新消息状态 | [/message](#message)                      | urlencoded           | GET   | 李飞     | 否   |
 | 获取广告位信息 | [/banner](#banner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 广告位图片下载 | [/downloadBanner](#downloadBanner)                      | urlencoded           | GET   | 张树彬     | 否   |
+| 生成RSA公私钥 | [/generateRsaKey](#generateRsaKey)                      | urlencoded           | POST   | 张树彬     | 否   |
+| 生成敏感信息Key | [/generateSensitiveKey](#generateSensitiveKey)                      | urlencoded   | POST   | 张树彬     | 否 |
 ----------------------------------------------------------------------------------
 <a id="sendMobileMessage"></a>
 ### 获取验证码  /sendMobileMessage
@@ -1991,5 +1993,77 @@ Content-Length: 100
 
 {
     字节流
+}
+```
+
+##### [返回目录↑](#content-title)
+<a id="generateRsaKey"></a>
+### 生成RSA公私钥  /generateRsaKey
+#### 1\. 生成RSA公私钥
+请求：  
+```
+POST /generateRsaKey HTTP/1.1
+Host: mposp.21er.tk
+Date: Thu, 03 Dec 2015 10:22:53
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 30
+
+appVersion: "ios.未知.1.1.813"
+
+```
+
+响应： 
+
+```
+HTTP/1.1 200 OK
+Server: Nginx
+Date: Thu, 09 Apr 2015 11:36:53 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Cache-Control: no-cache
+Content-Length: 100
+
+{
+   "respTime":"20151125161740",
+   "isSuccess":true,
+   "respCode":"SUCCESS",
+   "respMsg":"获取成功",
+   "publicKey": "sdfsdfsdfsdfsd" //RSA公钥
+}
+```
+
+##### [返回目录↑](#content-title)
+<a id="generateSensitiveKey"></a>
+### 生成敏感信息Key  /generateSensitiveKey
+#### 1\. 生成敏感信息Key
+请求：  
+```
+POST /generateSensitiveKey HTTP/1.1
+Host: mposp.21er.tk
+Date: Thu, 03 Dec 2015 10:22:53
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 30
+
+appVersion: "ios.未知.1.1.813",
+cipher："sdfsdgfggggggggggggggggggg"//加密后的密文信息
+```
+
+响应： 
+
+```
+HTTP/1.1 200 OK
+Server: Nginx
+Date: Thu, 09 Apr 2015 11:36:53 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Cache-Control: no-cache
+Content-Length: 100
+
+{
+   "respTime":"20151125161740",
+   "isSuccess":true,
+   "respCode":"SUCCESS",
+   "respMsg":"获取成功",
+   "cipher": "sdfsdfsdfsdfsd" //用客户端公钥加密后的密文信息
 }
 ```
