@@ -15,7 +15,7 @@
 ## API 接口地址
 ```
 暂无 # 生产环境
-http://mposp.21er.tk # 测试环境
+http://192.168.1.240:29110 # 测试环境
 ```
 
 ## 标准请求
@@ -100,8 +100,11 @@ HTTP/1.1 403 Forbidden
 | 获取消息接口/更新消息状态 | [/message](#message)                      | urlencoded           | GET   | 李飞     | 否   |
 | 获取广告位信息 | [/banner](#banner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 广告位图片下载 | [/downloadBanner](#downloadBanner)                      | urlencoded           | GET   | 张树彬     | 否   |
-| 生成RSA公私钥 | [/generateRsaKey](#generateRsaKey)                      | urlencoded           | POST   | 张树彬     | 否   |
-| 生成敏感信息Key | [/generateSensitiveKey](#generateSensitiveKey)                      | urlencoded   | POST   | 张树彬     | 否 |
+| 获取商户资质(3.0新加接口)| [/merchantQualify.action](#merchantQualify)| urlencoded           | POST |李飞| 是   |
+| 交易列表查询| [/tranList.action](#tranList)              | urlencoded           | POST |李飞| 是   |
+| 交易明细查询| [/tranInfo.action](#tranInfo)              | urlencoded           | POST |李飞| 是   |
+| 结算列表查询| [/settleList.action](#settleList)          | urlencoded           | POST |李飞| 是   |
+| 变更结算卡  | [/changeAccount.action](#changeAccount)    | urlencoded           | POST |李飞| 是   |
 ----------------------------------------------------------------------------------
 <a id="sendMobileMessage"></a>
 ### 获取验证码  /sendMobileMessage
@@ -190,6 +193,7 @@ Content-Length: 30
 "appVersion": "android.ZFT.1.2.143"
 "loginName": "18911156118"
 "reqTime": "20151228143806"
+"registId": "1122312233"//推送ID
 
 ```
 响应：  
@@ -210,6 +214,14 @@ Content-Length: 100
     "isMobileMerchant": true, //是否为手机商户
     "isPosMerchant": false, //是否为POS商户
     "posStatus": 0 //POS认证状态 (0未绑定 ,1待刷卡，2待认证,3实名认证通过)
+    ====3.0新增参数====
+    "merchantQualify"{
+	    "terminalAuth": 0 //设备绑定状态 (0未绑定 ,1绑定激活成功),
+	    "realNameAuth": 0 //实名认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+	    "merchantAuth": 0 //商户认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+	    "accountAuth": 0 //账户认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+	    "signatureAuth": 0 //签名认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+    }
 }
 ```
 
@@ -1995,25 +2007,21 @@ Content-Length: 100
     字节流
 }
 ```
-
 ##### [返回目录↑](#content-title)
-<a id="generateRsaKey"></a>
-### 生成RSA公私钥  /generateRsaKey
-#### 1\. 生成RSA公私钥
+
+<a id="merchantQualify"></a>
+### 获取商户资质  /merchantQualify
+#### 1\. 获取商户资质（包含四审资质以及商户设备绑定状态）
 请求：  
 ```
-POST /generateRsaKey HTTP/1.1
+POST /merchantQualify HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
-
 ```
-
-响应： 
-
+响应：  
 ```
 HTTP/1.1 200 OK
 Server: Nginx
@@ -2024,32 +2032,42 @@ Cache-Control: no-cache
 Content-Length: 100
 
 {
-   "respTime":"20151125161740",
-   "isSuccess":true,
-   "respCode":"SUCCESS",
-   "respMsg":"获取成功",
-   "publicKey": "sdfsdfsdfsdfsd" //RSA公钥
+    "respTime": "20151228143800",
+    "isSuccess": true,
+    "respCode": "SUCCESS",
+    "respMsg": "成功",
+    "merchantQualify"{
+	    "terminalAuth": 0 //设备绑定状态 (0未绑定 ,1绑定激活成功),
+	    "realNameAuth": 0 //实名认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+	    "merchantAuth": 0 //商户认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+	    "accountAuth": 0 //账户认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+	    "signatureAuth": 0 //签名认证 (0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
+    }
 }
 ```
 
 ##### [返回目录↑](#content-title)
-<a id="generateSensitiveKey"></a>
-### 生成敏感信息Key  /generateSensitiveKey
-#### 1\. 生成敏感信息Key
+
+<a id="tranList"></a>
+### 交易列表查询  /tranList
+#### 1\. 交易列表查询
 请求：  
 ```
-POST /generateSensitiveKey HTTP/1.1
+POST /tranList HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813",
-cipher："sdfsdgfggggggggggggggggggg"//加密后的密文信息
+
+"appVersion": "android.ZFT.1.2.143",
+"settleType": "D+0",--结算类型
+"lastID": "", --上次请求最后一笔交易的ID
+"startTime": "2016-06-06", --起始时间 yyyy-MM-dd格式
+"endTime": "2016-06-06", --结束时间 yyyy-MM-dd格式 
+
 ```
-
-响应： 
-
+响应：  
 ```
 HTTP/1.1 200 OK
 Server: Nginx
@@ -2060,10 +2078,133 @@ Cache-Control: no-cache
 Content-Length: 100
 
 {
-   "respTime":"20151125161740",
-   "isSuccess":true,
-   "respCode":"SUCCESS",
-   "respMsg":"获取成功",
-   "cipher": "sdfsdfsdfsdfsd" //用客户端公钥加密后的密文信息
+    "respTime": "20151228143800",
+    "isSuccess": true,
+    "respCode": "SUCCESS",
+    "respMsg": "成功",
+    "count": 134,//交易笔数
+    "amount": 13684228,//交易总额
+    "tranList": [    
+      {
+        "tranid": 676453,--交易id
+        "transType": "sale",--交易类型 sale-消费/sale_void-撤销/auth_comp-预授权完成/auth_comp_cancel-预授权完成撤销/refund-退货 
+        "transTime": "2016-05-15 15:56:25",--交易时间
+        "transStatus": "1",--交易状态：0未知/1正常/2已冲正/3已撤销/4已退款
+        "settleType": "D+0",--结算类型
+        "amount": 100 --交易金额(分)
+      },
+    ...
+    ]
 }
 ```
+
+##### [返回目录↑](#content-title)
+
+<a id="tranInfo"></a>
+### 交易明细查询  /tranInfo
+#### 1\. 交易明细查询
+请求：  
+```
+POST /tranInfo HTTP/1.1
+Host: mposp.21er.tk
+Date: Thu, 03 Dec 2015 10:22:53
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 30
+
+
+"appVersion": "android.ZFT.1.2.143",
+"transId": "21891", //交易ID
+
+```
+响应：  
+```
+HTTP/1.1 200 OK
+Server: Nginx
+Date: Thu, 09 Apr 2015 11:36:53 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Cache-Control: no-cache
+Content-Length: 100
+
+{
+    "respTime": "20151228143800",
+    "isSuccess": true,
+    "respCode": "SUCCESS",
+    "respMsg": "成功",
+     "tranInfo": {
+	       "transId": "21891", //交易ID
+		"merchantNo": "500000000621891",//商户编号
+		"merchantName": "xxx",//商户名称
+		"transTime": "2016-05-15 15:56:25",//交易时间
+		"batchNo": "000001",//交易批次
+		"voucherNo": "000001",//交易流水号
+		"terminalNo": "XXXXX",//交易终端号
+		"cardNoWipe": "62226******5655",//带星号卡号
+		"transType": "sale",//交易类型 -- sale-消费/sale_void-撤销/auth_comp-预授权完成/auth_comp_cancel-预授权完成撤销/refund-退货 
+		"transStatus": 1,//交易状态 -- 0未知/1正常/2已冲正/3已撤销/4已退款
+		"settleType": "D+0",--结算类型
+		"amount": 11111,//交易金额(分)
+	}
+	
+}
+```
+
+##### [返回目录↑](#content-title)
+
+
+<a id="settleList"></a>
+### 结算列表查询  /settleList
+#### 1\. 结算列表查询
+请求：  
+```
+POST /settleList HTTP/1.1
+Host: mposp.21er.tk
+Date: Thu, 03 Dec 2015 10:22:53
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 30
+
+"appVersion": "android.ZFT.1.2.143"
+"startTime": "2016-3-14",//起始时间yyyy-MM-dd格式
+"endTime": "2016-3-16",//结束时间yyyy-MM-dd格式
+"settleType": "1",//结算类型 1-TN 2-D0
+"uniqueRecord":"10790-6228480010970642611-995100-d0"//最后一条记录的唯一标识(非必传项)
+
+```
+响应：  
+```
+HTTP/1.1 200 OK
+Server: Nginx
+Date: Thu, 09 Apr 2015 11:36:53 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Cache-Control: no-cache
+Content-Length: 100
+
+{
+ "respTime": "20160612174733", 
+    "isSuccess": true, 
+    "respCode": "SUCCESS", 
+    "respMsg": "成功", 
+    "count": 7, //总条数
+    "amount": 6413673//结算总额(单位:分)
+    "settleList": [
+        {
+            "settleId": 10794, //结算id
+            "settleStatus": 2, //结算状态(1:成功, 2:失败)
+            "transAmount": 29853, //交易金额(单位:分)
+            "settleMoney": 29853, //结算金额(单位:分)
+            "accountNum": "6228480010970642611", //结算账户 
+            "settleType": "D+0", //结算类型
+            "merchantName": "旧数据企业", //商户名称
+            "merchantNo": "500000000876552", //商户号
+            "settleDate": "2016-03-15", //结算日期
+            "uniqueRecord": "10794-6228480010970642611-298530-d0"//唯一标识
+			
+        }
+	...
+    ], 
+
+}
+```
+
+##### [返回目录↑](#content-title)
