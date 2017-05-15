@@ -101,7 +101,7 @@ HTTP/1.1 403 Forbidden
 | 获取广告位信息 | [/banner](#banner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 广告位图片下载 | [/downloadBanner](#downloadBanner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 获取商户资质(3.0新加接口)| [/merchantQualify.action](#merchantQualify)| urlencoded           | POST |李飞| 是   |
-| 交易列表查询| [/tranList.action](#tranList)              | urlencoded           | POST |李飞| 是   |
+| 交易列表查询| [/findTransList.action](#tranList)              | urlencoded           | POST |李飞| 是   |
 | 交易明细查询| [/tranInfo.action](#tranInfo)              | urlencoded           | POST |李飞| 是   |
 | 结算列表查询| [/settleList.action](#settleList)          | urlencoded           | POST |李飞| 是   |
 | 变更结算卡  | [/changeAccount.action](#changeAccount)    | urlencoded           | POST |李飞| 是   |
@@ -2100,12 +2100,12 @@ Content-Length: 100
 
 ##### [返回目录↑](#content-title)
 
-<a id="tranInfo"></a>
-### 交易明细查询  /tranInfo
+<a id="findTransList"></a>
+### 交易明细查询  /findTransList
 #### 1\. 交易明细查询
 请求：  
 ```
-POST /tranInfo HTTP/1.1
+POST /findTransList HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
