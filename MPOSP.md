@@ -1876,13 +1876,19 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-messageId: "56711f5b84aea1954cade27b"
-detail: false
+"appVersion": "android.ZFT.1.2.143"
+
+//获取消息列表
+"detail": true,//获取消息
+
+//获取消息头
+"detail": false,//获取消息
+
+//变更消息阅读状态
+"messageId": "5753d725737f247007d596db"//消息id
 
 ```
-
-响应： 
-
+响应：  
 ```
 HTTP/1.1 200 OK
 Server: Nginx
@@ -1892,21 +1898,83 @@ Connection: keep-alive
 Cache-Control: no-cache
 Content-Length: 100
 
+//获取消息列表
 {
-     
-    "isSuccess":true,
-    "head":{"hasUnRead":false,"totalCount":0,"readCount":0,"unReadCount":0} 
-    "body":{"des":
-		[
-		{"businessType":"2","content":"消息内容2","createTime":1450254226000,"hasLink":"0","isRead":1,"linkAddress":"www.sohu.com","linkText":"搜狐","newsId":"56711f8184aea1954cade27c","newsType":"0","readTime":1450768873990,"title":"测试2"},
-		{"businessType":"1,2","content":"消息内容1","createTime":1450254187000,"hasLink":"0","isRead":0,"linkAddress":"www.sina.com","linkText":"新浪","newsId":"56711f5b84aea1954cade27b","newsType":"0","title":"测试1"}
-		]
-		},
-		
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"查询成功"
+    "respTime": "20160606142841", 
+    "isSuccess": true, 
+    "respCode": "SUCCESS", 
+    "respMsg": "成功", 
+    "body": [
+        {
+            "content": "就问你怕不怕！！！", //消息内容
+            "linkAddress": "", //链接地址
+            "title": "商户通内部测试", //消息标题
+            "newsId": "575513d784aeddcc333a7a10",//消息id 
+            "linkText": "", //链接地址文本
+            "hasLink": false, //是否有链接
+            "createTimeStr": "20160606140803",//创建时间 
+            "businessType": "1", //消息所属业务(0：理财, 1：vcPos, 2：Pos)
+            "newsType": "0", //消息类型(0：公告, 1：通知)
+            "isRead": 0//是否已阅读(0:"否", 1:"是")
+        }, 
+        {
+            "content": "通知测试之所有", 
+            "linkAddress": "", 
+            "title": "通知测试之所有", 
+            "newsId": "5753d725737f247007d596db", 
+            "linkText": "", 
+            "hasLink": false, 
+            "createTimeStr": "20160605153917", 
+            "readTimeStr": "20160605162312", 
+            "businessType": "1", 
+            "newsType": "1", 
+            "isRead": 1
+        }, 
+        {
+            "content": "通知测试之安卓", 
+            "linkAddress": "", 
+            "title": "通知测试之安卓", 
+            "newsId": "5753d711737f247007d596da", 
+            "linkText": "", 
+            "hasLink": false, 
+            "createTimeStr": "20160605153857", 
+            "businessType": "1", 
+            "newsType": "1", 
+            "isRead": 0
+        }
+    ], 
+    "head": {
+        "hasUnRead": true, //是否有未读消息
+        "unReadNotice": false,//是否有未读通知
+        "unReadBulletin": false,//是否有未读公告
+        "totalCount": 3, //消息总条数
+        "readCount": 1, //已阅读数
+        "unReadCount": 2//未阅读数
+    }
+}
+
+//获取消息头
+{
+    "respTime": "20160606145626", 
+    "isSuccess": true, 
+    "respCode": "SUCCESS", 
+    "respMsg": "成功", 
+    "head": {
+        "hasUnRead": true, 
+        "totalCount": 3, 
+        "readCount": 1, 
+        "unReadCount": 2
+    }
+}
+
+//变更消息阅读状态
+{
+    "respTime": "20160606145829", 
+    "isSuccess": true, 
+    "respCode": "SUCCESS", 
+    "respMsg": "成功", 
+    "des": "状态修改成功!", 
+    "messageId": "575513d784aeddcc333a7a10"
 }
 ```
 
