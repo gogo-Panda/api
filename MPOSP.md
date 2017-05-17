@@ -60,7 +60,6 @@ HTTP/1.1 403 Forbidden
 | 退出| [/logout](#logout)                      | urlencoded           | POST      | 李飞     | 是   |
 | 注册| [/register](#register)                      | urlencoded           | POST   |  李飞     | 否   |
 | 签到| [/signin](#signin)                      | urlencoded           | POST   | 李飞     | 是   |
-| D0当日交易剩余金额 | [/transD0Amount](#transD0Amount)                      | urlencoded           | GET   | 李飞     | 否   |
 | 获取强制更新的参数 | [/getForceUpdate](#getForceUpdate)    | urlencoded           | GET   | 李飞     | 否   |
 | ICkey回调接口| [/downloadFinished](#downloadFinished)                      | urlencoded           | POST   | 李飞     | 是   |
 | 修改密码| [/resetPassword](#resetPassword)                      | urlencoded           | POST   | 李飞     | 是   |
