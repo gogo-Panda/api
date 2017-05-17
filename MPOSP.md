@@ -2117,8 +2117,8 @@ Content-Length: 100
 
 ##### [返回目录↑](#content-title)
 
-<a id="tranList"></a>
-### 交易列表查询  /tranList
+<a id="findTransList"></a>
+### 交易列表查询  /findTransList
 #### 1\. 交易列表查询
 请求：  
 ```
@@ -2169,8 +2169,8 @@ Content-Length: 100
 
 ##### [返回目录↑](#content-title)
 
-<a id="findTransList"></a>
-### 交易明细查询  /findTransList
+<a id="tranInfo"></a>
+### 交易明细查询  /tranInfo
 #### 1\. 交易明细查询
 请求：  
 ```
