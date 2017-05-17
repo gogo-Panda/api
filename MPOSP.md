@@ -2122,7 +2122,7 @@ Content-Length: 100
 #### 1\. 交易列表查询
 请求：  
 ```
-POST /tranList HTTP/1.1
+POST /findTransList HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -2174,7 +2174,7 @@ Content-Length: 100
 #### 1\. 交易明细查询
 请求：  
 ```
-POST /findTransList HTTP/1.1
+POST /tranInfo HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
