@@ -60,19 +60,15 @@ HTTP/1.1 403 Forbidden
 | 退出| [/logout](#logout)                      | urlencoded           | POST      | 李飞     | 是   |
 | 注册| [/register](#register)                      | urlencoded           | POST   |  李飞     | 否   |
 | 签到| [/signin](#signin)                      | urlencoded           | POST   | 李飞     | 是   |
-| 保持心跳| [/heartBeat](#heartBeat)                      | urlencoded           | POST   | 李飞     | 是   |
 | D0当日交易剩余金额 | [/transD0Amount](#transD0Amount)                      | urlencoded           | GET   | 李飞     | 否   |
 | 获取强制更新的参数 | [/getForceUpdate](#getForceUpdate)    | urlencoded           | GET   | 李飞     | 否   |
-| T1当日交易总额 | [/transT1Amount](#transT1Amount)                      | urlencoded           | GET   | 李飞     | 是   |
 | ICkey回调接口| [/downloadFinished](#downloadFinished)                      | urlencoded           | POST   | 李飞     | 是   |
 | 修改密码| [/resetPassword](#resetPassword)                      | urlencoded           | POST   | 李飞     | 是   |
 | 忘记密码| [/forgetPassword](#forgetPassword)                      | urlencoded           | POST   | 李飞     | 否   |
 | 查询交易状态| [/transStatus](#transStatus)                      | urlencoded           | POST   | 李飞     | 是   |
 | 发送交易小票接口| [/transMessage](#transMessage)                      | urlencoded           | POST   | 李飞     | 是   |
-| 根据交易卡类型计算手续费| [/getHandlingCharge](#getHandlingCharge) | urlencoded           | POST   | 李飞     | 是   |
 | 查询交易| [/queryTrans](#queryTrans)                      | urlencoded           | GET   | 李飞     | 是   |
 | 联行号查询| [/bankQuery](#bankQuery)                      | urlencoded           | GET   | 李飞     | 否   |
-| 获取18家结算银行| [/bankList](#bankList)                      | urlencoded           | GET   | 李飞     | 否   |
 | 绑定/解绑用户银行卡| [/bindBankCard](#bindBankCard)                      | urlencoded           | GET   | 李飞     | 是   |
 | 获取用户银行卡列表| [/listBandCard](#listBandCard)                      | urlencoded           | GET   | 李飞     | 是   |
 | 激活绑定设备| [/activeAndBindEquip](#activeAndBindEquip)                      | urlencoded           | POST   | 张树彬     | 是   |
@@ -84,14 +80,8 @@ HTTP/1.1 403 Forbidden
 | 账户认证信息回显| [/accountAuthStatus](#accountAuthStatus)                      | urlencoded           | GET   | 张树彬    | 是   |
 | 签名认证| [/signatureAuth](#signatureAuth)                      | urlencoded           | POST   | 张树彬    | 是   |
 | 签名认证信息回显| [/signatureAuthStatus](#signatureAuthStatus)                      | urlencoded           | GET   | 张树彬| 是   |
-| 及时付身份证认证| [/handIdCardAuth](#handIdCardAuth)                      | urlencoded           | POST   | 张树彬     | 是   |
-| 及时付身份证认证回显| [/handIdCardAuthStatus](#handIdCardAuthStatus)                 | urlencoded      | GET   | 张树彬 | 是   |
-| 及时付账户认证| [/dzAccountAuth](#dzAccountAuth)                      | urlencoded           | POST   | 张树彬     | 是   |
-| 及时付账户认证信息回显| [/dzAccountAuthStatus](#dzAccountAuthStatus)                      | urlencoded    | GET   | 张树彬 | 是   |
 | 消费 | [/sale](#sale)                      | urlencoded           | POST   | 李飞     | 是   |
 | 余额查询 | [/query](#query)                      | urlencoded           | POST   | 李飞     | 是   |
-| 四审认证状态查询 | [/authStatus](#authStatus)                      | urlencoded           | GET   | 张树彬     | 是   |  
-| 及时付认证状态查询 | [/dzAuthStatus](#dzAuthStatus)                      | urlencoded           | GET   | 张树彬     | 是   |
 | 认证图片下载 | [/downloadImg](#downloadImg)                      | urlencoded           | GET   | 张树彬     | 是   |
 | IC回调 | [/transNotify](#transNotify)                      | urlencoded           | POST   | 张树彬     | 是   |
 | 更换设备 | [/swiperChange](#swiperChange)                      | urlencoded           | POST   | 李飞     | 是   |
@@ -475,38 +465,7 @@ Content-Length: 100
     "respMsg":"验证成功"
 }
 ```
-##### [返回目录↑](#content-title)
-<a id="heartBeat"></a>
-### 保持心跳  /heartBeat
-#### 1\. 保持心跳
-请求：  
-```
-POST /heartBeat HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
-```
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"成功"
-}
-```
 ##### [返回目录↑](#content-title)
 
 
@@ -541,75 +500,7 @@ Content-Length: 100
     "isSuccess":true,
 }
 ```
-##### [返回目录↑](#content-title)
 
-<a id="transD0Amount"></a>
-### D0当日交易剩余金额  /transD0Amount
-#### 1\. D0当日交易剩余金额
-请求：  
-```
-GET /transD0Amount HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-```
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "merchantAccount":5000000,//当日商户剩余可用金额
-    "agencyAccount":2999992790,
-    "showAccount":5000000,
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"成功"
-}
-```
-##### [返回目录↑](#content-title)
-<a id="transT1Amount"></a>
-### T1当日交易总额  /transT1Amount
-#### 1\. T1当日交易总额
-请求：  
-```
-GET /transT1Amount HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-```
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "amount":5000000,
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"成功"
-}
-```
 ##### [返回目录↑](#content-title)
 
 <a id="transStatus"></a>
@@ -826,44 +717,6 @@ Content-Length: 100
 }
 ```
 
-##### [返回目录↑](#content-title)
-<a id="bankList"></a>
-### 获取18家结算银行  /bankList
-#### 1\. 获取18家结算银行
-请求：  
-```
-GET /bankList HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-card : XXXXXX
-reqTime: "20151124111059"
-appVersion: "ios.未知.1.1.813"
-
-```
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "list": {
-    	[bankName:"2222", bankCode: "333", bankLogoIndex: "333", support: "true"],
-    	[bankName:"4444", bankCode: "555", bankLogoIndex: "666", support: "true"]},
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"验证成功"
-}
-```
 ##### [返回目录↑](#content-title)
 
 <a id="bindBankCard"></a>
@@ -1302,159 +1155,7 @@ Content-Length: 100
     "respMsg":"查询成功"
 }
 ```
-##### [返回目录↑](#content-title)
-<a id="handIdCardAuth"></a>
-### 及时付身份证认证  /handIdCardAuth
-#### 1\. 及时付身份证认证
-请求：  
-```
-POST /handIdCardAuth HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
-idCard: 图片 //手持身份证图片
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "isOldCard": true/false, //true：t1银行卡在十八家银行之内; false：不在
-    "respMsg":"手持身份证半身照认证信息已提交,请耐心等待"
-}
-```
-##### [返回目录↑](#content-title)
-<a id="handIdCardAuthStatus"></a>
-### 及时付身份证认证信息回显  /handIdCardAuthStatus
-#### 1\. 及时付身份证认证信息回显
-请求：  
-```
-GET /handIdCardAuthStatus HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "authStatus":(0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
-    "idCard":"id500000000620995.png",//身份证图片名称
-    "handIdCardReason":"人丑",//认证失败原因
-    "respMsg":"查询成功"
-}
-```
-##### [返回目录↑](#content-title)
-<a id="dzAccountAuth"></a>
-### 及时付账户认证  /dzAccountAuth
-#### 1\. 及时付账户认证
-请求：  
-```
-POST /dzAccountAuth HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-name："张三"
-bankDeposit: "银行注册网点"
-bankName: "开户行名称"
-unionBankNo: "联行号"
-accountNo: "银行卡号" 
-bankCard: 图片 //银行卡图片
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"账户认证信息已提交,请耐心等待"
-}
-```
-##### [返回目录↑](#content-title)
-<a id="dzAccountAuthStatus"></a>
-### 及时付账户认证信息回显  /dzAccountAuthStatus
-#### 1\. 及时付账户认证信息回显
-请求：  
-```
-GET /dzAccountAuthStatus HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "authStatus":(0:未认证, 1:认证成功, 2:认证失败, 3:审核中),
-    "accountNo":"6217000010012052348",//银行卡号
-    "card":"c500000000620995.png",//银行卡图片名称
-    "name":"张三",//账户名
-    "bankName":"建设银行",//银行名称
-    "unionBankNo":"56SDFSD56SDF",//联行号
-    "bankDeposit":"建设大街19号",//开户网点
-    "accountReason":"账户信誉差",//认证失败原因
-    "respMsg":"查询成功"
-}
-```
 ##### [返回目录↑](#content-title)
 <a id="sale"></a>
 ### 消费  /sale
@@ -1566,82 +1267,6 @@ Content-Length: 100
     "cardNoWipe":"4444****888",
     "transTime":"20151212125959", 
     "script":"ic55"
-}
-```
-##### [返回目录↑](#content-title)
-<a id="authStatus"></a>
-### 四审认证状态查询  /authStatus
-#### 1\. 四审认证状态查询
-请求：  
-```
-GET /authStatus HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "status":"1111", //认证状态 (第一位：实名认证状态, 第二位：商户认证状态, 第三位：账户认证状态, 第四位：签名认证状态)
-    "merchantReason":"商户信誉差",//商户认证失败原因
-    "realReason":"用户信誉差",//实名认证失败原因
-    "accountReason":"账户信誉差",//账户认证失败原因
-    "signatureReason":"签名丑",//签名认证失败原因
-    "respMsg":"查询成功"
-}
-```
-##### [返回目录↑](#content-title)
-<a id="dzAuthStatus"></a>
-### 及时付认证状态查询  /dzAuthStatus
-#### 1\. 及时付认证状态查询
-请求：  
-```
-GET /dzAuthStatus HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    "respTime":"20151130125253",
-    "isSuccess":true,
-    "respCode":"SUCCESS",
-    "status":"11", //认证状态 (第一位：手持身份证半身照认证状态, 第二位：账户认证状态)
-    "handIdCardReason":"人丑",//手持身份证半身照认证失败原因
-    "accountReason":"账户信誉差",//账户认证失败原因
-    "respMsg":"查询成功"
 }
 ```
 
@@ -1793,46 +1418,8 @@ Content-Length: 100
 	HTML页面
 }
 ```
+
 ##### [返回目录↑](#content-title)
-
-<a id="getHandlingCharge"></a>
-### 根据交易卡类型计算手续费  /getHandlingCharge
-#### 1\. 根据交易卡类型计算手续费
-请求：  
-```
-POST /getHandlingCharge HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-amount: "11111" //单位 分
-type: 1 //t1：1 DO：2
-card: "622600910049140997" //卡号
-
-
-```
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-   "respTime":"20151125161740",
-   "isSuccess":true,
-   "respCode":"SUCCESS",
-   "respMsg":"获取成功",
-   "handlingCharge": 2000 //手续费 分为单位
-}
-```
-##### [返回目录↑](#content-title)
-
 
 <a id="showProtocol"></a>
 ### 需要登录页面显示  /showProtocol
