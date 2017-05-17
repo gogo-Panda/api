@@ -101,7 +101,7 @@ HTTP/1.1 403 Forbidden
 | 获取广告位信息 | [/banner](#banner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 广告位图片下载 | [/downloadBanner](#downloadBanner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 获取商户资质(3.0新加接口)| [/merchantQualify.action](#merchantQualify)| urlencoded           | POST |李飞| 是   |
-| 交易列表查询| [/findTransList.action](#tranList)              | urlencoded           | POST |李飞| 是   |
+| 交易列表查询| [/findTransList.action](#findTransList)              | urlencoded           | POST |李飞| 是   |
 | 交易明细查询| [/tranInfo.action](#tranInfo)              | urlencoded           | POST |李飞| 是   |
 | 结算列表查询| [/settleList.action](#settleList)          | urlencoded           | POST |李飞| 是   |
 | 变更结算卡  | [/changeAccount.action](#changeAccount)    | urlencoded           | POST |李飞| 是   |
@@ -2122,7 +2122,7 @@ Content-Length: 100
 #### 1\. 交易列表查询
 请求：  
 ```
-POST /tranList HTTP/1.1
+POST /findTransList HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -2158,7 +2158,6 @@ Content-Length: 100
         "tranid": 676453,--交易id
         "transType": "sale",--交易类型 sale-消费/sale_void-撤销/auth_comp-预授权完成/auth_comp_cancel-预授权完成撤销/refund-退货 
         "transTime": "2016-05-15 15:56:25",--交易时间
-        "transStatus": "1",--交易状态：0未知/1正常/2已冲正/3已撤销/4已退款
         "settleType": "D+0",--结算类型
         "amount": 100 --交易金额(分)
       },
@@ -2174,7 +2173,7 @@ Content-Length: 100
 #### 1\. 交易明细查询
 请求：  
 ```
-POST /findTransList HTTP/1.1
+POST /tranInfo HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
