@@ -88,12 +88,10 @@ HTTP/1.1 403 Forbidden
 | 需要登录页面显示 | [/showProtocol](#showProtocol)                      | urlencoded           | GET   | 李飞     | 是   |
 | 获取消息接口/更新消息状态 | [/message](#message)                      | urlencoded           | GET   | 李飞     | 否   |
 | 获取广告位信息 | [/banner](#banner)                      | urlencoded           | GET   | 张树彬     | 否   |
-| 广告位图片下载 | [/downloadBanner](#downloadBanner)                      | urlencoded           | GET   | 张树彬     | 否   |
 | 获取商户资质(3.0新加接口)| [/merchantQualify.action](#merchantQualify)| urlencoded           | POST |李飞| 是   |
 | 交易列表查询| [/findTransList.action](#findTransList)              | urlencoded           | POST |李飞| 是   |
 | 交易明细查询| [/tranInfo.action](#tranInfo)              | urlencoded           | POST |李飞| 是   |
 | 结算列表查询| [/settleList.action](#settleList)          | urlencoded           | POST |李飞| 是   |
-| 变更结算卡  | [/changeAccount.action](#changeAccount)    | urlencoded           | POST |李飞| 是   |
 ----------------------------------------------------------------------------------
 <a id="sendMobileMessage"></a>
 ### 获取验证码  /sendMobileMessage
@@ -1605,38 +1603,6 @@ Content-Length: 100
 }
 ```
 
-##### [返回目录↑](#content-title)
-<a id="downloadBanner"></a>
-### 广告位图片下载  /downloadBanner
-#### 1\. 广告位图片下载
-请求：  
-```
-GET /downloadImg HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
-fileName  : "b500000000620994.png" //图片名称
-
-```
-
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-{
-    字节流
-}
-```
 ##### [返回目录↑](#content-title)
 
 <a id="merchantQualify"></a>
