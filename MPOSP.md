@@ -1657,7 +1657,7 @@ Content-Length: 30
 
 
 "appVersion": "android.ZFT.1.2.143",
-"settleType": "D+0",--结算类型
+"settleType": "1",//结算类型 1-TN 2-D0
 "lastID": "", --上次请求最后一笔交易的ID
 "startTime": "2016-06-06", --起始时间 yyyy-MM-dd格式
 "endTime": "2016-06-06", --结束时间 yyyy-MM-dd格式 
