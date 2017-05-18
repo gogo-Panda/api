@@ -203,6 +203,8 @@ Content-Length: 100
     "isMobileMerchant": true, //是否为手机商户
     "isPosMerchant": false, //是否为POS商户
     "posStatus": 0 //POS认证状态 (0未绑定 ,1待刷卡，2待认证,3实名认证通过)
+    "ksnNo": "700000000056" ,//设备KSN号，没有绑定设备则没有该字段
+    "model":"landim35",//设备类型，没有绑定设备则没有该字段
     ====3.0新增参数====
     "merchantQualify"{
 	    "terminalAuth": 0 //设备绑定状态 (0未绑定 ,1绑定激活成功),
@@ -344,23 +346,6 @@ Content-Length: 100
     "isSuccess": true, 
     "respCode": "SUCCESS", 
     "respMsg": "签到成功", 
-    "businessT1": {
-        "isMerchantT1": true, 
-        "info": {
-            "T1AuthFirstPass" : 1;
-            "status": "1111", 
-            "name": "橡树斌", 
-	    "identityCard"："370828199709879876",
-            "cardTail": "2333", 
-            "bluetoothName": "AC079158", 
-            "serialType": "0.78--26", 
-            "merchantReason": "", 
-            "realReason": "", 
-            "signatureReason": "", 
-            "accountReason": "", 
-            "feeRate": "0.78~26"
-        }
-    }, 
     "model": "itron15-9", 
     "needUpdateIC": false, 
     "device": {
@@ -370,22 +355,9 @@ Content-Length: 100
         "isBluetooth": true, 
         "macAddress": "8C:DE:52:C3:51:0D", 
         "ksnNo": "7000100000008177"
-    }, 
-    "agencyTrade": true, 
-    "traceNo": 20, 
-    "businessD0": {
-        "isMerchantD0": true, 
-        "isHoliday": false, 
-        "startTime": 1457373903000, 
-        "endTime": 1457446027000, 
-        "info": {
-            "merchantTradeStatus": 1, 
-            "accountD0Status": 1, 
-            "merchantFeeRate": "0.78~26", 
-            "merchantAddFeeRate": "0"
-        }, 
-        "d0SecondFeeRate": 0.49, //d0秒到商户费率
-        "d0SecondMinSettleAmount": 900000 //d0秒到商户单笔最低限额(单位：分)
+        "bluetoothName": "AC079158", 
+    },
+    "traceNo": 20
     }
     "functionDisabled": ["transD0Amount"] //本次上线禁用的接口列表
 }
@@ -732,6 +704,7 @@ Content-Length: 30
 isDelete: "false" //绑定、解绑参数
 cardIds: "XXX YYYY"//解绑卡列表 空格区分
 bankCard: "XXXX"
+idNumber:"XXXXX",//身份证
 mobile: "13777775555"
 reqTime: "20151124111059"
 isSelf : true //true表示添加自己的银行卡
@@ -769,7 +742,7 @@ Content-Length: 100
 #### 1\. 获取商户绑定银行卡列表
 请求：  
 ```
-POST /listBandCard HTTP/1.1
+GET /listBandCard HTTP/1.1
 Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -794,12 +767,14 @@ list:[
 {
     "accountNo": "XXXX",
     "bankName": "xx银行",
-    "bankIndex": 1,
+    "accountName": "罗小苗",
+    "bankIndex": 1,
     "status": 1,//认证状态
     "cardId": 1
 },{
     "accountNo": "XXXX",
     "bankName": "xx银行",
+    "accountName": "罗小苗",
     "bankIndex": 3,
     "status": 1,//认证状态
     "cardId": 2
