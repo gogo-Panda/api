@@ -198,9 +198,6 @@ Content-Length: 100
     "isSuccess": true,
     "respCode": "SUCCESS",//当有新版本需要更新的商户返回特殊code ： UPGRADE_SYSTEM
     "respMsg": "登录成功",
-    "isMobileMerchant": true, //是否为手机商户
-    "isPosMerchant": false, //是否为POS商户
-    "posStatus": 0 //POS认证状态 (0未绑定 ,1待刷卡，2待认证,3实名认证通过)
     "ksnNo": "700000000056" ,//设备KSN号，没有绑定设备则没有该字段
     "model":"landim35",//设备类型，没有绑定设备则没有该字段
     ====3.0新增参数====
