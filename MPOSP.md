@@ -788,7 +788,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-isUseActiveCode:"1"//是否使用激活码进行进件(1:是, 0:否)
 ksnNo: "5010100000023402"
 activeCode: "11C718FF1FD14531"
 product: "ZFT" //产品型号
@@ -810,8 +809,8 @@ Content-Length: 100
 {
     "respTime":"20151130125253",
     "isSuccess":true,
-    "respCode":"SUCCESS",
-    "respMsg":"激活绑定设备成功"
+    "respCode":"SUCCESS",//respCode为ACTIVECODE_IS_NOT_NULL,需跳转到输入激活码界面
+    "respMsg":"激活绑定设备成功"
 }
 ```
 ##### [返回目录↑](#content-title)
