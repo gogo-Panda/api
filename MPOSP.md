@@ -18,6 +18,12 @@
 http://192.168.1.240:29110 # 测试环境
 ```
 
+## 公共请求参数
+```
+appVersion: "ios.未知.1.1.813"//平台版本号
+
+```
+
 ## 标准请求
 ```sh
 curl -X POST \
@@ -105,7 +111,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 mobile: "15801376995"
 type: "registe" //注册、忘记密码必传(registe/forget)  (非必传项)
 ```
@@ -139,7 +144,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 accountName: "张无忌" //姓名
 idNumber   ： "010876765543456543" //身份证
 mobile     ： "15201059026" //手机号
@@ -178,7 +182,6 @@ Content-Length: 30
 
 "position": "116.379062,39.97077"
 "password": "qqqqqq"
-"appVersion": "android.ZFT.1.2.143"
 "loginName": "18911156118"
 "reqTime": "20151228143806"
 "registId": "1122312233"//推送ID
@@ -224,8 +227,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-    "appVersion": "ios.未知.1.1.813"
-
 ```
 响应：  
 ```
@@ -258,7 +259,6 @@ Content-Length: 30
 
 mobile: "15801376995"
 password: "123456"
-appVersion: "ios.未知.1.1.813"
 idCode: 1234 //验证码
 
 ```
@@ -291,8 +291,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
-
 ```
 响应：  
 ```
@@ -323,8 +321,7 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-    "appVersion":"ios.未知.1.1.813",
-    "position":"117.194778,39.113809",
+"position":"117.194778,39.113809",
 
 ```
 响应：  
@@ -410,7 +407,6 @@ password: "123456"
 idNumber: "413023199101259999" //身份证
 mobile: "15801376995"
 idCode: "5741"//验证码
-appVersion: "ios.未知.1.1.813"
 ```
 响应： 
 
@@ -447,7 +443,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 ```
 响应： 
 
@@ -487,7 +482,6 @@ origReqNo: "1111"
 origReqTime: "20151124111059"
 reqNo: "qqq"
 reqTime: "20151124111059"
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -541,7 +535,6 @@ batchNo: "12"
 reqNo: "1111"
 mobile: "13500001111"
 origReqTime: "20151124111059"
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -577,7 +570,6 @@ Content-Length: 30
 
 date: "20151201"
 respNo: "1111"
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -658,7 +650,6 @@ reqNo: "111"
 max: "111"
 p: "111"
 reqTime: "20151124111059"
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -705,8 +696,6 @@ mobile: "13777775555"
 reqTime: "20151124111059"
 isSelf : true //true表示添加自己的银行卡
 idCode ："1234" //短信验证码
-appVersion: "ios.未知.1.1.813"
-
 
 ```
 响应： 
@@ -743,8 +732,6 @@ Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -794,7 +781,6 @@ activeCode: "11C718FF1FD14531"
 product: "ZFT" //产品型号
 model: "landim35" //设备型号
 macAddress:"XX:XX:XX:XX"
-appVersion: "ios.未知.1.1.813"
 ```
 响应： 
 
@@ -826,7 +812,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 name: "狗剩"
 idNumber: "341225199005063896"
 personal: 图片 //身份证正面照
@@ -862,8 +847,6 @@ Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -905,7 +888,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 companyName: "企业名称"
 regPlace: "经营地址"
 businessLicense: "营业执照号"
@@ -942,8 +924,6 @@ Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -982,7 +962,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 name: "姓名" //名字
 identityCard : 370828199902019876 //身份证号
 bankName: "银行名称" 
@@ -1022,8 +1001,6 @@ Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -1065,7 +1042,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 signature: 图片 //签名图片
 ```
 
@@ -1098,8 +1074,6 @@ Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
-
-appVersion: "ios.未知.1.1.813"
 
 ```
 响应： 
@@ -1137,7 +1111,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813",
 ksnNo: "800090000004",
 reqNo: "129",
 position: "117.194778,39.113809",
@@ -1204,7 +1177,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813",
 ksnNo: "800090000004",
 reqNo: "129",
 cardSerialNum: "001",
@@ -1251,7 +1223,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 fileName  : "c5000000000000000.png" //图片名称
 
 ```
@@ -1289,7 +1260,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 reqNo:"1234"
 origTransTime:"20151212070809"
 origTransType:"sale"
@@ -1330,7 +1300,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion: "ios.未知.1.1.813"
 reqNo:"1234"
 ksnNo:"XXXXXX"
 model:"landim35"
@@ -1432,8 +1401,6 @@ Host: mposp.21er.tk
 Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
-
-"appVersion": "android.ZFT.1.2.143"
 
 //获取消息列表
 "detail": true,//获取消息
@@ -1548,8 +1515,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-appVersion : ios.ZFT.1.1.813
-
 ```
 
 响应： 
@@ -1652,8 +1617,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-
-"appVersion": "android.ZFT.1.2.143",
 "settleType": "1",//结算类型 1-TN 2-D0
 "lastID": "", --上次请求最后一笔交易的ID
 "startTime": "2016-06-06", --起始时间 yyyy-MM-dd格式
@@ -1703,8 +1666,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-
-"appVersion": "android.ZFT.1.2.143",
 "transId": "21891", //交易ID
 
 ```
@@ -1755,7 +1716,6 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-"appVersion": "android.ZFT.1.2.143"
 "startTime": "2016-3-14",//起始时间yyyy-MM-dd格式
 "endTime": "2016-3-16",//结束时间yyyy-MM-dd格式
 "settleType": "1",//结算类型 1-TN 2-D0
