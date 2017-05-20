@@ -21,7 +21,7 @@ http://192.168.1.240:29110 # 测试环境
 ## 标准请求
 ```sh
 curl -X POST \
-    http://mposp.21er.tk/<资源路径> \
+    http://mposp.21er.tk/<资源路径>.action\
     # 其他可选参数，参数以键值对呈现...
 ```
 
@@ -33,6 +33,7 @@ Server: Nginx
 Content-Type: application/json; charset=utf-8
 Connection: keep-alive
 Cache-Control: no-cache
+WSSESSION: ""//session信息
 Content-Length: 100
 
 ...body...
