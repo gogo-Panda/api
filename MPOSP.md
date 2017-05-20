@@ -350,7 +350,6 @@ Content-Length: 100
     },
     "traceNo": 20
     }
-    "functionDisabled": ["transD0Amount"] //本次上线禁用的接口列表
 }
 
 ```
