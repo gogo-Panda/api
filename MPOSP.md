@@ -1254,14 +1254,14 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-reqNo:"1234"
-origTransTime:"20151212070809"
-origTransType:"sale"
-origReqNo:"1234"
-icData:"asfakfjasklfdsa"
-cardNo:"622266000000"
-cardSerialNum:"01"
-tradeType:1 //交易类型(1:T1, 16:D0, 17:D0秒到)
+reqNo:"1234"//本次请求的流水号
+origTransTime:"20151212070809"//原始交易时间
+origTransType:"sale"//原始交易类型
+origReqNo:"1234"//原始请求流水号
+icData:"asfakfjasklfdsa"//IC数据
+cardNo:"622266000000"//交易卡号
+cardSerialNum:"01"//卡序列号
+tradeFlag:false //是否为D0交易
 ```
 
 响应： 
