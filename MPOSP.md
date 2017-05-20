@@ -1634,7 +1634,7 @@ Content-Length: 100
     "respMsg": "成功",
     "count": 134,//交易笔数
     "amount": 13684228,//交易总额
-    "tranList": [    
+    "transList": [    
       {
         "tranid": 676453,--交易id
         "transType": "sale",--交易类型 sale-消费/sale_void-撤销/auth_comp-预授权完成/auth_comp_cancel-预授权完成撤销/refund-退货 
