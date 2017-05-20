@@ -473,13 +473,10 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-amount: "11111"
-origTransType: "sale"
-origReqNo: "1111"
-origReqTime: "20151124111059"
-reqNo: "qqq"
-reqTime: "20151124111059"
-
+amount: "11111"//原始交易金额
+origTransType: "sale"//原始交易类型
+origReqNo: "1111"//原交易请求号
+tradeFlag: false//是否为D0业务
 ```
 响应： 
 
