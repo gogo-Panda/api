@@ -73,7 +73,6 @@ HTTP/1.1 403 Forbidden
 | 忘记密码| [/forgetPassword](#forgetPassword)                      | urlencoded           | POST   | 李飞     | 否   |
 | 查询交易状态| [/transStatus](#transStatus)                      | urlencoded           | POST   | 李飞     | 是   |
 | 发送交易小票接口| [/transMessage](#transMessage)                      | urlencoded           | POST   | 李飞     | 是   |
-| 查询交易| [/queryTrans](#queryTrans)                      | urlencoded           | GET   | 李飞     | 是   |
 | 联行号查询| [/bankQuery](#bankQuery)                      | urlencoded           | GET   | 李飞     | 否   |
 | 绑定/解绑用户银行卡| [/bindBankCard](#bindBankCard)                      | urlencoded           | GET   | 李飞     | 是   |
 | 获取用户银行卡列表| [/listBandCard](#listBandCard)                      | urlencoded           | GET   | 李飞     | 是   |
@@ -522,13 +521,12 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-amount: "11111"
-terminalNo: "44444"
-merchantNo: "2333"
-batchNo: "12"
-reqNo: "1111"
-mobile: "13500001111"
-origReqTime: "20151124111059"
+amount: "11111"//原交易交易金额
+terminalNo: "44444"//原交易终端号
+merchantNo: "2333"//原交易商户号
+batchNo: "12"//原交易批次号
+reqNo: "1111"//原交易请求号
+mobile: "13500001111"//手机号
 
 ```
 响应： 
@@ -549,84 +547,7 @@ Content-Length: 100
    "respMsg":"短信发送成功,注意查收"
 }
 ```
-##### [返回目录↑](#content-title)
 
-<a id="queryTrans"></a>
-### 查询接口  /queryTrans
-#### 1\. 查询接口
-请求：  
-```
-POST /queryTrans HTTP/1.1
-Host: mposp.21er.tk
-Date: Thu, 03 Dec 2015 10:22:53
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
-Content-Length: 30
-
-date: "20151201"
-respNo: "1111"
-
-```
-响应： 
-
-```
-HTTP/1.1 200 OK
-Server: Nginx
-Date: Thu, 09 Apr 2015 11:36:53 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache
-Content-Length: 100
-
-respNo: "111"
-merchantName: "啊啊啊啊"
-merchantNo: "1111"
-terminalNo: "1111"
-transactions: 
-{
-    "reqNo": 645254,
-    "transType": "sale",
-    "voucherNo": 2222,//交易流水号
-    "respCode": "00",
-    "amount": 1234,
-    "merchantNo": 111111111,
-    "terminalNo": 22222,
-    "currency": "CNY",    
-    "immediatePay": false,    //是否是DO交易
-    "transTime": 20151130125253,
-    "refNo": 1234,
-    "authNo": 1234    
-    "cardTail": "6666",//卡号后四位    
-    "cardNoWipe": 645***254,
-    "operatorNo": 01,
-    "issuer": "XX银行",
-    "batchNo": 123
-}，
-{
-    "reqNo": 645254,
-    "transType": "sale",
-    "voucherNo": 2222,//交易流水号
-    "respCode": "00",
-    "amount": 1234,
-    "merchantNo": 111111111,
-    "terminalNo": 22222,
-    "currency": "CNY",    
-    "immediatePay": false,    //是否是DO交易
-    "transTime": 20151130125253,
-    "refNo": 1234,
-    "authNo": 1234    
-    "cardTail": "6666",//卡号后四位    
-    "cardNoWipe": 645***254,
-    "operatorNo": 01,
-    "issuer": "XX银行",
-    "batchNo": 123
-
-}
-"respTime":"20151130125253",
-"isSuccess":true,
-"respCode":"SUCCESS",
-"respMsg":"验证成功",
-
-```
 ##### [返回目录↑](#content-title)
 <a id="bankQuery"></a>
 ### 联行号查询  /bankQuery
@@ -639,11 +560,9 @@ Date: Thu, 03 Dec 2015 10:22:53
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Content-Length: 30
 
-keyWord: "中国 银行"
-reqNo: "111"
-max: "111"
-p: "111"
-reqTime: "20151124111059"
+keyWord: "中国 银行"//搜索关键字
+count: "20"//一次搜索最多展示多少条
+pageCount: "111"//查询的页数
 
 ```
 响应： 
@@ -659,9 +578,18 @@ Content-Length: 100
 
 {
     "total": 100,
-    "tip": "",
+    "tip": "结果较多, 建议使用精确关键字, 例如添加地名等",
     "reqNo": 100,
-    "banks": {[bankDeposit:"2222", unionBankNo: "333"],[bankDeposit:"33", unionBankNo: "444"]},
+    "banks": {
+    	[
+	  bankDeposit:"2222",
+	  unionBankNo: "333"
+	],
+	[
+	  bankDeposit:"33", 
+	  unionBankNo: "444"
+	]
+    },
     "respTime":"20151130125253",
     "isSuccess":true,
     "respCode":"SUCCESS",
